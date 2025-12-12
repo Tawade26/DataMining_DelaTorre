@@ -35,7 +35,7 @@ head(df, 10)
 # This insight could report back to as a potential improvements on Staff Performance and Queue Management.
 
 
-# Part 3
+# Part 3 - Word Cloud Generation
 png("wordcloud_exam.png", width = 800, height = 600)
 set.seed(1126)
 
@@ -51,12 +51,11 @@ wordcloud(
 dev.off()
 
 
-# Part 4
+# Part 4 - Advance Task
 df_rare <- subset(df, freq==1)
 
 print("Least Frequent Words")
 head(df_rare, 5)
-
 
 png("wordcloud_rare.png", width = 800, height = 600)
 set.seed(0709)
@@ -70,5 +69,4 @@ wordcloud(
   rot.per = 0.35,
   colors = brewer.pal(8, "Dark2")
 )
-
 dev.off()
