@@ -20,11 +20,13 @@ corpus <- tm_map(corpus, stripWhitespace)
 corpus <- tm_map(corpus, stemDocument)
 
 
-# Part 2
+# Part 2 - Word Frequency Analysis
 tdm <- TermDocumentMatrix(corpus)
 m <- as.matrix(tdm)
 word_freqs <- sort(rowSums(m), decreasing = TRUE)
+
 df <- data.frame(word = names(word_freqs), freq = word_freqs)
+
 print("Top 10 Most Frequent Words")                                 
 head(df, 10)
 # The most used words are "Mandatory", "Official", and "Services" indicating a requirement in the office field.
@@ -63,7 +65,7 @@ wordcloud(
   words = df_rare$word,
   freq = df_rare$freq,
   min.freq = 1,
-  max.words = 1000,
+  max.words = 5,
   random.order = FALSE,
   rot.per = 0.35,
   colors = brewer.pal(8, "Dark2")
